@@ -14,6 +14,11 @@ public class StudentServiceImpl implements StudentService {
     StudentDao studentDao;
 
     @Override
+    public Student getStudent(String email, String password) {
+        return studentDao.getStudent(email,password);
+    }
+
+    @Override
     public void addStudent(Student student) {
         System.out.println(student);
         studentDao.save(student);

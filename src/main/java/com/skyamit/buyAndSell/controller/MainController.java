@@ -22,21 +22,34 @@ public class MainController {
     }
 
     @GetMapping("/register")
-    public String registerNow(){
+    public String registerNow(Model model){
         return "register";
     }
 
     @GetMapping("/login")
-    public String loginNow(){
+    public String loginNow(Model model){
         return "login";
     }
 
-    @PostMapping("/registerStudent")
-    public String registerStudent(@PathParam("firstName") String firstName, @PathParam("lastName") String lastName,
+    @PostMapping("/registerUser")
+    public String registerUser(@PathParam("firstName") String firstName, @PathParam("lastName") String lastName,
                                    @PathParam("gender") String gender, @PathParam("email") String email,@PathParam("password") String password ){
 
         Student student = new Student(firstName,lastName,gender,email,password);
         studentServiceImpl.addStudent(student);
         return "redirect:/register";
+    }
+
+    @GetMapping("/user")
+    public String userHome(Model model){
+        return "user";
+    }
+    @PostMapping("/loginUser")
+    public String loginUser(@PathParam("email") String email, @PathParam("password") String password){
+        Student student = studentServiceImpl.getStudent(email,password);
+        if(student==null){
+            return "redirect:/login";
+        }
+        return "redirect:/user";
     }
 }
