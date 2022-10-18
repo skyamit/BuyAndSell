@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body{
+            background-color:lightgreen;
+            margin:0px;
+            font-family: monospace;
+        }
+        input,button{
+            font-family:monospace;
+        }
+        #main{
+            padding:20px;
+        }
+        #main,#header{
+            display:flex;
+            justify-content:space-around;
+            align-items:center;
+        }
+        #header{
+            background-color:green;
+        }
+        a{
+            text-decoration:none;
+            color:white;
+        }
+        a:hover{
+            color : gray;
+        }
+        #all-links{
+            display:flex;
+        }
+        #all-links a{
+            margin-left:20px;
+        }
+        form h3{
+            width : 110px;
+            margin:5px;
+            display:inline-block;
+        }
+        button{
+            font-weight:bold;
+            background-color:green;
+            color : white;
+            height:25px;
+            width:80px;
+            border:0px;
+        }
+        button:hover{
+            border:solid;
+            border-color:green;
+            background-color:white;
+            color:green;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div id="home">
+        <a href="/"><h3>BuyAndSell</h3></a>
+    </div>
+    <div id="all-links">
+        <a href="/register"><h3>Register</h3></a>
+        <a href="/login"><h3>Login</h3></a>
+    </div>
+</div>
+<div id="main">
+    <div>
+        <h1>Sell or Buy books here!!</h1>
+
+        <h3>New books cost much more than what we can buy from someone who doesn't need it.</h3>
+        <h3>If you have old books which you don't need, which someone else need then why not sell it.</h3>
+
+        <hr>
+        <h3>Sell your Books today!! <a href="/register" style="color:blue;">Register</a></h3>
+        <h3>Already Registered? <a href="/login" style="color:blue;">Login Now</a></h3>
+    </div>
+</div>
+</body>
+</html>

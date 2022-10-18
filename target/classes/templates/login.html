@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+        body{
+            background-color:lightgreen;
+            margin:0px;
+            font-family: monospace;
+        }
+        input,button{
+            font-family:monospace;
+        }
+        #main,#header{
+            display:flex;
+            justify-content:space-around;
+            align-items:center;
+        }
+        #header{
+            background-color:green;
+        }
+        a{
+            text-decoration:none;
+            color:white;
+        }
+        a:hover{
+            color : gray;
+        }
+        #all-links{
+            display:flex;
+        }
+        #all-links a{
+            margin-left:20px;
+        }
+        form h3{
+            width : 110px;
+            margin:5px;
+            display:inline-block;
+        }
+        button{
+            font-weight:bold;
+            background-color:green;
+            color : white;
+            height:25px;
+            width:80px;
+            border:0px;
+        }
+        button:hover{
+            border:solid;
+            border-color:green;
+            background-color:white;
+            color:green;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+  <div id="home">
+    <a href="/"><h3>BuyAndSell</h3></a>
+  </div>
+  <div id="all-links">
+    <a href="/buyBook"><h3>Buy Books</h3></a>
+    <a href="/sellBook"><h3>Sell Books</h3></a>
+    <a href="/orders"><h3>My Orders</h3></a>
+    <a href="/Cart"><h3>Cart</h3></a>
+  </div>
+</div>
+<div id="main">
+  <div>
+
+  </div>
+  <div>
+    <h1>Login</h1>
+
+    <form method="post" action="/loginStudent">
+      <h3>Email Id :</h3> <input type="text" name="email" placeholder="Enter your email">
+      <br>
+      <h3>Password :</h3> <input type="password" name="password" placeholder="*********">
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+    <hr>
+    <h3>Not Registered Yet? <a href="/register" style="color:blue;">Register Now</a></h3>
+
+  </div>
+</div>
+</body>
+</html>
