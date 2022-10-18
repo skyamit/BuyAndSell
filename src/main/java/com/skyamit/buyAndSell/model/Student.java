@@ -9,17 +9,15 @@ public class Student {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String gender;
     private String email;
     private String password;
 
     public Student(){}
 
-    public Student(String firstName, String lastName, String gender, String email,String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Student(String name, String gender, String email, String password) {
+        this.name = name;
         this.gender = gender;
         this.email = email;
         this.password = password;
@@ -33,20 +31,12 @@ public class Student {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getGender() {
@@ -78,20 +68,19 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(id, student.id) && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && Objects.equals(gender, student.gender) && Objects.equals(email, student.email) && Objects.equals(password, student.password);
+        return Objects.equals(id, student.id) && Objects.equals(name, student.name) && Objects.equals(gender, student.gender) && Objects.equals(email, student.email) && Objects.equals(password, student.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, gender, email, password);
+        return Objects.hash(id, name, gender, email, password);
     }
 
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", firstName='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

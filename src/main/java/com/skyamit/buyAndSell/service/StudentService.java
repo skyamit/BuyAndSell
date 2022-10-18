@@ -10,7 +10,7 @@ public interface StudentService {
 
     Student getStudent(String email, String password);
     void addStudent(Student student);
-
+    boolean checkStudent(String email);
     void deleteStudent(Student student);
 
     void updateStudent(Student student);

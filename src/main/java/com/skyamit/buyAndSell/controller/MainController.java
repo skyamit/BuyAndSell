@@ -7,8 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
+import java.util.Optional;
 
 @Controller
 public class MainController {
@@ -17,39 +20,79 @@ public class MainController {
     StudentServiceImpl studentServiceImpl;
 
     @GetMapping("/")
-    public String home(Model model){
+    public String home(Model model,HttpSession session){
+
+        if(session.getAttribute("student") != null)
+            return "redirect:/user";
+
         return "home";
     }
 
     @GetMapping("/register")
-    public String registerNow(Model model){
+    public String registerNow(Model model,@RequestParam("value") Optional<String> value,HttpSession session){
+
+        if(session.getAttribute("student") != null)
+            return "redirect:/user";
+
+        if(value.isPresent()){
+            model.addAttribute("value",value.get());
+        }
         return "register";
     }
 
-    @GetMapping("/login")
-    public String loginNow(Model model){
+    @GetMapping(path="/login")
+    public String loginNow(Model model, @RequestParam("wrongCredentials") Optional<String> wrong,HttpSession session){
+
+        if(session.getAttribute("student") != null)
+            return "redirect:/user";
+
+        if(wrong.isPresent()){
+            model.addAttribute("wrongCredentials",wrong.get());
+        }
         return "login";
     }
 
     @PostMapping("/registerUser")
-    public String registerUser(@PathParam("firstName") String firstName, @PathParam("lastName") String lastName,
-                                   @PathParam("gender") String gender, @PathParam("email") String email,@PathParam("password") String password ){
+    public String registerUser(@PathParam("name") String name,
+                               @PathParam("gender") String gender,
+                               @PathParam("email") String email,
+                               @PathParam("password") String password,
+                               HttpSession session,
+                               Model model){
 
-        Student student = new Student(firstName,lastName,gender,email,password);
+        if(session.getAttribute("student") != null)
+            return "redirect:/user";
+
+        if(studentServiceImpl.checkStudent(email)){
+            return "redirect:/register?value=Account already exists";
+        }
+        Student student = new Student(name, gender,email,password);
         studentServiceImpl.addStudent(student);
-        return "redirect:/register";
+        return "redirect:/register?value=Registration successful";
     }
 
     @GetMapping("/user")
-    public String userHome(Model model){
+    public String userHome(Model model, HttpSession session){
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+
+        Student  student = (Student)session.getAttribute("student");
+        model.addAttribute("student",student);
         return "user";
     }
     @PostMapping("/loginUser")
-    public String loginUser(@PathParam("email") String email, @PathParam("password") String password){
+    public String loginUser(@PathParam("email") String email, @PathParam("password") String password, Model model,HttpSession session){
         Student student = studentServiceImpl.getStudent(email,password);
         if(student==null){
-            return "redirect:/login";
+            return "redirect:/login?wrongCredentials=Incorrect Email or Password";
         }
+        session.setAttribute("student",student);
         return "redirect:/user";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/login";
     }
 }

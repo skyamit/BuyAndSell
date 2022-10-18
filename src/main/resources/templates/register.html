@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Register Now!!</title>
     <style>
         body{
@@ -12,7 +12,7 @@
         input,button{
             font-family:monospace;
         }
-        #main,#header{
+        #main,#header,#footer{
             display:flex;
             justify-content:space-around;
             align-items:center;
@@ -65,15 +65,13 @@
         </div>
     </div>
     <div id="main">
-        <div>
-
+        <div style="overflow:hidden;height:300px;with:120%;">
+            <img style="min-width:100%;margin-top:10px;min-height:300px;" src="https://knowledge.wharton.upenn.edu/wp-content/uploads/2016/04/books-600x440.jpg" alt="books">
         </div>
         <div>
             <h1>Register</h1>
             <form method="post" action="/registerUser">
-                <h3>First name :</h3> <input type="text" name="firstName" placeholder="Enter your firstname">
-                <br>
-                <h3>Last name :</h3> <input type="text" name="lastName" placeholder="Enter your lastname">
+                <h3>Name :</h3> <input type="text" name="name" placeholder="Enter your name">
                 <br>
                 <h3>Gender :</h3>
                 <br>
@@ -87,8 +85,15 @@
                 <br>
                 <button type="submit">Submit</button>
             </form>
+            <p style="font-weight:bold;" th:text="${value}"></p>
             <hr>
             <h3>Already Registered? <a href="/login" style="color:blue;">Login Now</a></h3>
+        </div>
+    </div>
+
+    <div id="footer" style="background-color:green;height:50px;color:white;">
+        <div id="developer">
+            <h3>Created by Amit Kumar Know more about me at <a href="https://www.linkedin.com/in/skyamit/" style="color:blue;">SkyAmit</a></h3>
         </div>
     </div>
 </body>

@@ -20,10 +20,14 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void addStudent(Student student) {
-        System.out.println(student);
         studentDao.save(student);
     }
 
+    public boolean checkStudent(String email){
+        if(studentDao.exists(email)==null)
+            return false;
+        return true;
+    }
     @Override
     public void deleteStudent(Student student) {
         studentDao.delete(student);

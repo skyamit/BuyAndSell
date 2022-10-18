@@ -9,4 +9,6 @@ public interface StudentDao extends JpaRepository<Student,Long> {
     @Query(value = "select * from student where email=:email and password=:password", nativeQuery = true)
     Student getStudent(String email, String password);
 
+    @Query(value = "select * from student where email=:email", nativeQuery = true)
+    Student exists(String email);
 }
