@@ -1,0 +1,110 @@
+a{
+    text-decoration:none;
+}
+
+body{
+    background-color:lightgreen;
+    margin:0px;
+    font-family: monospace;
+}
+#header{
+    display:flex;
+    justify-content:space-between;
+    padding: 0px 10px 0px 10px;
+    align-items:center;
+    background-color:green;
+}
+#header h3{
+    font-size:4.0vmin;
+    color:white;
+    font-weight:bolder;
+    margin-left:1.8vmin;
+}
+#all-links{
+    display:flex;
+    align-items:center;
+}
+#header h3:hover{
+    color:lightgreen;
+}
+
+#header button{
+    color:green;
+    background:white;
+    padding:5px;
+    margin-left:2vmin;
+    font-size:3vmin;
+    font-weight:bolder;
+}
+#logout:hover{
+  background-color:red;
+  color:white;
+}
+
+
+#main{
+    display:flex;
+    justify-content:space-around;
+}
+
+#main input{
+    font-family:monospace;
+    padding:5px;
+    width:95%;
+    font-size:3vmin;
+    margin-top:5px;
+}
+#main h3{
+    font-size:3vmin;
+}
+
+#main h2{
+    font-size:4vmin;
+}
+
+#main button{
+    min-width:45vmin;
+    max-width:100%;
+    margin-top:5px;
+    padding:5px;
+    font-size:3vmin;
+    color:green;
+    font-weight:bolder;
+}
+#main button:hover{
+    background-color:green;
+    color:white;
+}
+
+
+#main #single-book{
+    width:90%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+form h3{
+    width : 110px;
+    margin:5px;
+    display:inline-block;
+}
+.books h3,h5{
+    margin:5px;
+}
+#details a{
+    color:green;
+}
+#details a:hover{
+    color:white;
+}

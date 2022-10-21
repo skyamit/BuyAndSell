@@ -14,13 +14,19 @@
         input,button{
             font-family:monospace;
         }
-        #main,#header,#footer{
+        input{
+          padding:5px;
+          margin:5px;
+        }
+        #header,#footer{
             display:flex;
             justify-content:space-around;
             align-items:center;
-        }
-        #header{
             background-color:green;
+        }
+        #main{
+            display:flex;
+            justify-content:space-around;
         }
         a{
             text-decoration:none;
@@ -74,9 +80,9 @@
     <h1>Login</h1>
 
     <form method="post" action="/loginUser">
-      <h3>Email Id :</h3> <input type="text" name="email" placeholder="Enter your email">
+      <h3>Email Id :</h3> <input type="text" name="email" placeholder="Enter your email" required>
       <br>
-      <h3>Password :</h3> <input type="password" name="password" placeholder="*********">
+      <h3>Password :</h3> <input type="password" name="password" placeholder="*********" required>
       <br>
       <button type="submit">Submit</button>
     </form>

@@ -18,12 +18,12 @@ public class Book {
 
     int uploadId;
     Date uploadDate;
-
     int purchaserId;
+    int status;
 
     public Book(){}
 
-    public Book(String bookName, String bookAuthor, int purchasePrice, int sellingPrice, int uploadId, Date uploadDate, int purchaserId) {
+    public Book(String bookName, String bookAuthor, int purchasePrice, int sellingPrice, int uploadId, Date uploadDate, int purchaserId, int status) {
         this.bookName = bookName;
         this.bookAuthor = bookAuthor;
         this.purchasePrice = purchasePrice;
@@ -31,6 +31,7 @@ public class Book {
         this.uploadId = uploadId;
         this.uploadDate = uploadDate;
         this.purchaserId = purchaserId;
+        this.status = status;
     }
 
     public int getId() {
@@ -97,17 +98,11 @@ public class Book {
         this.purchaserId = purchaserId;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", bookName='" + bookName + '\'' +
-                ", bookAuthor='" + bookAuthor + '\'' +
-                ", purchasePrice=" + purchasePrice +
-                ", sellingPrice=" + sellingPrice +
-                ", uploadId=" + uploadId +
-                ", uploadDate=" + uploadDate +
-                ", purchaserId=" + purchaserId +
-                '}';
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

@@ -3,113 +3,59 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Homepage</title>
-    <style>
-        body{
-            background-color:lightgreen;
-            margin:0px;
-            font-family: monospace;
-        }
-        input,button{
-            font-family:monospace;
-        }
-        #main,#header{
-            display:flex;
-            justify-content:space-around;
-        }
-        #header{
-            background-color:green;
-        }
-        a{
-            text-decoration:none;
-        }
-        #header a{
-            color:white;
-        }
-        #header a:hover{
-            color : gray;
-        }
-        #all-links{
-            display:flex;
-        }
-        #all-links a{
-            margin-left:20px;
-        }
-        form h3{
-            width : 110px;
-            margin:5px;
-            display:inline-block;
-        }
-        button{
-            font-weight:bold;
-            background-color:white;
-            color : green;
-            height:25px;
-            width:80px;
-            border:0px;
-        }
-        button:hover{
-            border:solid;
-            border-width:1px;
-            border-color:white;
-            background-color:green;
-            color:white;
-        }
-        .books h3,h5{
-            margin:5px;
-        }
-        #details a{
-            color:green;
-        }
-        #details a:hover{
-            color:white;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" media="all" href="/../static/css/style.css" th:href="@{/css/style.css}" />
 </head>
 <body>
-<div id="header">
-    <div id="home">
-        <a href="/user"><h3 style="color:white;">BuyAndSell</h3></a>
-    </div>
-    <div id="all-links">
-        <a href="/purchase"><h3>Buy Books</h3></a>
-        <a href="/upload"><h3>Sell Books</h3></a>
-        <a href="/orders"><h3>My Orders</h3></a>
-        <a href="/Cart"><h3>Cart</h3></a>
-        <a href="/logout"><h3>Logout</h3></a>
-    </div>
-</div>
-<div id="main" style="margin-top:20px;padding:40px;">
-    <div style="width:45%;">
-        <h3 style="margin:0px;display:inline;" >Welcome</h3>
-        <h2 style="margin:0px;margin-left:10px;display:inline;" th:text="${student.name}"></h2>
-        <div id="details">
-            <h3>Total Books Sold : 3</h3>
-            <h3>Purchased Books : 3</h3>
-            <a href="/available"><button style="width:200px;">Available Books</button></a>
-            <br>
-            <a href="/upload"><button style="width:200px;margin-top:20px;">Upload Books</button></a>
-            <br>
-            <a href="/profile"><button style="width:200px;margin-top:20px;">Update Profile</button></a>
-            <br>
-            <a href="/pending"><button style="width:200px;margin-top:20px;">Pending Confirmation</button></a>
+    <div id="header">
+        <div id="home">
+            <a href="/user"><h3 style="color:white;">BuyAndSell</h3></a>
+        </div>
+        <div id="all-links" style="display:flex;align-items:center;">
+            <a href="/available"><h3>Buy</h3></a>
+            <a href="/upload"><h3>Sell</h3></a>
+            <a href="/logout"><button id="logout" >Logout</button></a>
         </div>
     </div>
-    <div style="width:50%;">
-        <h2 style="margin:0px">Listed Books</h2>
-        <br>
-        <div th:each="books : ${books}" style="color:white;border:solid;padding:10px;display:flex;background-color:green;" class="books">
-            <div class="book-image" style="border:solid;width:30%;border-width:1px;background-color:light green;">
-
+    <div id="main" style="margin-top:20px;padding:40px;">
+        <div style="width:45%;">
+            <h3 style="margin:0px;display:inline;" >Welcome</h3>
+            <h2 style="margin:0px;margin-left:10px;display:inline;" th:text="${student.name}"></h2>
+            <div id="details">
+                <div style="margin-top:10px;">
+                    <h3 style="display:inline-block;margin:0px;">No. of Books Uploaded :</h3>
+                    <h3 style="display:inline-block;margin:0px;" th:text="${totalUploads}"></h3>
+                </div>
+                <div style="padding:10px 0px;">
+                    <h3 style="display:inline-block;margin:0px;">No. of Books Purchased :</h3>
+                    <h3 style="display:inline-block;margin:0px;" th:text="${totalPurchased}"></h3>
+                </div>
+                <a href="/available"><button >Available Books</button></a>
+                <br>
+                <a href="/upload"><button >Upload Books</button></a>
+                <br>
+                <a href="/profile"><button >Update Profile</button></a>
+                <br>
+                <a href="/pending"><button >Pending Confirmation</button></a>
+                <br>
+                <a href="/order"><button >My Order</button></a>
             </div>
-            <div class="book-details" style="padding:5px;">
-                <h3 th:text="${books.bookName}"></h3>
-                <h3 th:text="${books.bookAuthor}"></h3>
-                <h5>Posted On : <span th:text="${books.uploadDate}"></span></h5>
-                <h3 th:text="${books.sellingPrice}"></h3>
-                <a th:href="@{'/delete/' + ${books.id}}"><button style="padding:5px;width:90%;">Delete Book</button></a>
+        </div>
+        <div style="width:50%;">
+            <h2 style="margin:0px">Listed Books</h2>
+            <br>
+            <div th:each="books : ${books}" style="color:white;border:solid;padding:10px;display:flex;background-color:green;" class="books">
+                <div class="book-image" style="border:solid;width:30%;border-width:1px;background-color:light green;">
+                    <img style="height:100%;width:100%;" src="https://knowledge.wharton.upenn.edu/wp-content/uploads/2016/04/books-600x440.jpg" alt="books">
+                </div>
+                <div class="book-details" style="padding:5px;">
+                    <h3 th:text="${books.bookName}"></h3>
+                    <h3 th:text="${books.bookAuthor}"></h3>
+                    <h5>Posted On : <span th:text="${books.uploadDate}"></span></h5>
+                    <h3 th:text="${books.sellingPrice}"></h3>
+                    <a th:href="@{'/delete/' + ${books.id}}"><button >Delete Book</button></a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

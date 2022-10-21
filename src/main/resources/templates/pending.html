@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Confirm Page</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/../static/css/style.css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div id="header">
+    <div id="home">
+        <a href="/user"><h3 style="color:white;">BuyAndSell</h3></a>
+    </div>
+    <div id="all-links" style="display:flex;align-items:center;">
+        <a href="/available"><h3>Buy</h3></a>
+        <a href="/upload"><h3>Sell</h3></a>
+        <a href="/logout"><button id="logout" >Logout</button></a>
+    </div>
+</div>
+<div id="main" style="margin-top:20px;padding:40px;">
+    <div style="width:70%;">
+        <h2 style="margin:0px">Pick any of these books</h2>
+        <br>
+        <div th:each="books : ${books}" style="color:white;border:solid;padding:10px;display:flex;background-color:green;" class="books">
+            <div class="book-image" style="border:solid;width:30%;border-width:1px;background-color:light green;">
+                <img style="height:100%;width:100%;" src="https://knowledge.wharton.upenn.edu/wp-content/uploads/2016/04/books-600x440.jpg" alt="books">
+            </div>
+            <div class="book-details" style="padding:5px;">
+                <h3 th:text="${books.bookName}"></h3>
+                <h3 th:text="${books.bookAuthor}"></h3>
+                <h5>Posted On : <span th:text="${books.uploadDate}"></span></h5>
+                <h3 th:text="${books.sellingPrice}"></h3>
+                <a th:href="@{'/confirm/'+${books.id}}"><button style="padding:5px;width:90%;">Confirm Order</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Upload Books</title>
+  <link rel="stylesheet" type="text/css" media="all" href="/../static/css/style.css" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div id="header">
+    <div id="home">
+      <a href="/user"><h3 style="color:white;">BuyAndSell</h3></a>
+    </div>
+    <div id="all-links" style="display:flex;align-items:center;">
+      <a href="/available"><h3>Buy</h3></a>
+      <a href="/upload"><h3>Sell</h3></a>
+      <a href="/Cart"><h3>Cart</h3></a>
+      <a href="/logout"><button id="logout" >Logout</button></a>
+    </div>
+  </div>
+  <div id="main" style="margin-top:20px;padding:40px;">
+    <div id="form-upload">
+      <h3>Update your Name</h3>
+      <form action="/updateName" method="post">
+        <input type="text" name="newName" placeholder="Enter your Name" required>
+        <br>
+        <button style="width:100%;">Update Name</button>
+        <p style="font-weight:bold;" th:text="${nameUpdated}"></p>
+      </form>
+      <hr>
+      <h3>Change your Password</h3>
+      <form action="/updatePassword" method="post">
+        <input type="password" name="newPassword" placeholder="New Password" required>
+        <br>
+        <button style="width:100%;">Change Password</button>
+        <p style="font-weight:bold;" th:text="${passwordUpdated}"></p>
+      </form>
+
+    </div>
+  </div>
+</body>
+</html>

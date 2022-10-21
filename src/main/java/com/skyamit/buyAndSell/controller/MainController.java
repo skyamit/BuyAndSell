@@ -89,6 +89,12 @@ public class MainController {
         List<Book> books = bookServiceImpl.getBookByUploadId(Integer.parseInt(student.getId()+""));
         model.addAttribute("books",books);
 
+        int totalUploads = bookServiceImpl.totalUploads(Integer.parseInt(""+student.getId()));
+        model.addAttribute("totalUploads",totalUploads);
+
+        int totalPurchased = bookServiceImpl.totalPurchased(Integer.parseInt(""+student.getId()));
+        model.addAttribute("totalPurchased",totalPurchased);
+
         return "user";
     }
     @PostMapping("/loginUser")
@@ -143,4 +149,111 @@ public class MainController {
         return "redirect:/user";
     }
 
+    @GetMapping("/profile")
+    public String changeProfile(@RequestParam("v1") Optional<String> value,@RequestParam("v2") Optional<String> value2,
+                                Model model, HttpSession session){
+
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+
+        if(value.isPresent()) {
+            model.addAttribute("nameUpdated", "Name Changed");
+        }
+        if(value2.isPresent()){
+            model.addAttribute("passwordUpdated","Password Changed");
+        }
+
+        return "profile";
+    }
+
+    @PostMapping("/updateName")
+    public String updateName(@PathParam("newName") String newName,Model mode, HttpSession session){
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+
+        Student student  = (Student)session.getAttribute("student");
+        student.setName(newName);
+        studentServiceImpl.updateStudent(student);
+
+        return "redirect:/profile?v1=name changed";
+    }
+
+    @PostMapping("/updatePassword")
+    public String updatePassword(@PathParam("newPassword") String newPassword,Model mode, HttpSession session){
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+
+        Student student  = (Student)session.getAttribute("student");
+        student.setPassword(newPassword);
+        studentServiceImpl.updateStudent(student);
+
+        return "redirect:/profile?v2=password changed";
+    }
+
+    @GetMapping("/available")
+    public String booksAvailable(Model model, HttpSession session){
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+
+        Student student = (Student)session.getAttribute("student");
+        model.addAttribute("books", bookServiceImpl.availableBooks(Integer.parseInt(student.getId()+"")));
+        return "available";
+    }
+
+    @GetMapping("/purchase/{bookId}")
+    public String purchaseBook(@PathVariable("bookId") int bookId, Model mode, HttpSession session){
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+
+        Student student = (Student)session.getAttribute("student");
+        Book book = bookServiceImpl.getBookById(bookId);
+        book.setPurchaserId(Integer.parseInt(student.getId()+""));
+        book.setStatus(1);
+        bookServiceImpl.updateBook(book);
+
+        return "redirect:/available";
+    }
+
+    @GetMapping("/order")
+    public String getOrder(Model model, HttpSession session){
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+
+        Student student = (Student)session.getAttribute("student");
+        model.addAttribute("books",bookServiceImpl.totalBooksPurchased(Integer.parseInt(""+student.getId())));
+
+        return "order";
+    }
+
+    @GetMapping("/cancelOrder/{id}")
+    public String cancelOrder(@PathVariable("id") int id,Model mode, HttpSession session){
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+
+        Book book = bookServiceImpl.getBookById(id);
+        book.setStatus(0);
+        book.setPurchaserId(-1);
+        bookServiceImpl.updateBook(book);
+        return "redirect:/order";
+    }
+
+    @GetMapping("/pending")
+    public String pendingOrder(Model model, HttpSession session){
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+        Student student = (Student)session.getAttribute("student");
+        model.addAttribute("books",bookServiceImpl.pendingBooks(Integer.parseInt(""+student.getId())));
+        return "pending";
+    }
+
+    @GetMapping("/confirm/{id}")
+    public String confirmOrder(@PathVariable("id") int id,Model mode, HttpSession session){
+        if(session.getAttribute("student") == null)
+            return "redirect:/login";
+
+        Book book = bookServiceImpl.getBookById(id);
+        book.setStatus(2);
+        bookServiceImpl.updateBook(book);
+        return "redirect:/pending";
+    }
 }

@@ -3,98 +3,34 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Upload Books</title>
-  <style>
-        body{
-            background-color:lightgreen;
-            margin:0px;
-            font-family: monospace;
-        }
-        input,button{
-            font-family:monospace;
-            margin:5px;
-            padding:5px;
-            width:95%;
-        }
-        #main,#header{
-            display:flex;
-            justify-content:space-around;
-            align-items:center;
-        }
-        #header{
-            background-color:green;
-        }
-        a{
-            text-decoration:none;
-        }
-        #header a{
-            color:white;
-        }
-        #header a:hover{
-            color : gray;
-        }
-        #all-links{
-            display:flex;
-        }
-        #all-links a{
-            margin-left:20px;
-        }
-        form h3{
-            width : 110px;
-            margin:5px;
-            display:inline-block;
-        }
-        button{
-            font-weight:bold;
-            background-color:white;
-            color : green;
-            border:0px;
-        }
-        button:hover{
-            border:solid;
-            border-width:1px;
-            border-color:white;
-            background-color:green;
-            color:white;
-        }
-        .books h3,h5{
-            margin:5px;
-        }
-        #details a{
-            color:green;
-        }
-        #details a:hover{
-            color:white;
-        }
-    </style>
+  <link rel="stylesheet" type="text/css" media="all" href="/../static/css/style.css" th:href="@{/css/style.css}" />
 </head>
 <body>
-<div id="header">
-  <div id="home">
-    <a href="/user"><h3 style="color:white;">BuyAndSell</h3></a>
+  <div id="header">
+    <div id="home">
+      <a href="/user"><h3>BuyAndSell</h3></a>
+    </div>
+    <div id="all-links">
+      <a href="/available"><h3>Buy</h3></a>
+      <a href="/upload"><h3>Sell</h3></a>
+      <a href="/logout"><button id="logout" >Logout</button></a>
+    </div>
   </div>
-  <div id="all-links">
-    <a href="/buyBook"><h3>Buy Books</h3></a>
-    <a href="/sellBook"><h3>Sell Books</h3></a>
-    <a href="/orders"><h3>My Orders</h3></a>
-    <a href="/Cart"><h3>Cart</h3></a>
-    <a href="/logout"><h3>Logout</h3></a>
+  <div id="main">
+    <div id="form-upload">
+      <h3>Upload Books you want to Sell</h3>
+      <form action="/uploadBook" method="post">
+        <input type="text" name="bookName" placeholder="Book Name" required>
+        <br>
+        <input type="text" name="bookAuthor" placeholder="Author Name" required>
+        <br>
+        <input type="number" name="sellingPrice" placeholder="Selling Price" required>
+        <br>
+        <input type="number" name="purchasePrice" placeholder="Original Price" required>
+        <button>Upload Book</button>
+        <p style="font-weight:bold;" th:text="${bookUploaded}"></p>
+      </form>
+    </div>
   </div>
-</div>
-<div id="main" style="margin-top:20px;padding:40px;">
-  <div id="form-upload">
-    <h3>Upload Books you want to Sell</h3>
-    <form action="/uploadBook" method="post">
-      <input type="text" name="bookName" placeholder="Book Name"/>
-      <br>
-      <input type="text" name="bookAuthor" placeholder="Author Name"/>
-      <br>
-      <input type="number" name="sellingPrice" placeholder="Selling Price"/>
-      <br>
-      <input type="number" name="purchasePrice" placeholder="Original Price"/>
-      <button style="width:100%;">Upload Book</button>
-      <p style="font-weight:bold;" th:text="${bookUploaded}"></p>
-    </form>
-  </div>
-</div>
 </body>
 </html>
