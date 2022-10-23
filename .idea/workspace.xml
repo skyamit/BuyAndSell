@@ -5,36 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0384ebe7-5c74-4617-81ba-f31c71307edb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/available.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/order.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pending.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/templates/available.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/templates/order.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/templates/pending.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/templates/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/skyamit/buyAndSell/BuyAndSellApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/dao/BookDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/service/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skyamit/buyAndSell/service/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/dao/BookDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/dao/BookDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/model/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/model/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/service/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/skyamit/buyAndSell/service/BookServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/register.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pictures/startpage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/available.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/available.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/pending.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/pending.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user.html" afterDir="false" />
     </list>

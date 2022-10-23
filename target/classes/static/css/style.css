@@ -63,8 +63,6 @@ body{
 }
 
 #main button{
-    min-width:45vmin;
-    max-width:100%;
     margin-top:5px;
     padding:5px;
     font-size:3vmin;
